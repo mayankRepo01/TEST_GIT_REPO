@@ -19,8 +19,6 @@ public class TestAES {
     	// We are setting the secket key in the environment variable of the system
     	String key=System.getenv("secretkey");
     	
-    	
-    	new FileWriter("t.txt").close();
 		
     	String encrypteduser=AES.encrypt(user,key);
 		String encryptedpassword=AES.encrypt(pass,key);
