@@ -15,7 +15,9 @@ public class TestAES {
     	prop1.load(new FileInputStream("credentials.properties"));
     	String user=prop1.getProperty("user");
     	String pass=prop1.getProperty("password");
-    	String key=prop1.getProperty("secretkey");
+  
+    	// We are setting the secket key in the environment variable of the system
+    	String key=System.getenv("secretkey");
     	
     	
     	new FileWriter("t.txt").close();
@@ -27,7 +29,7 @@ public class TestAES {
 		Properties prop2=new Properties();
     	prop2.put("euser",encrypteduser);
     	prop2.put("epass",encryptedpassword);
-    	prop2.put("secretkey",key);
+    //	prop2.put("secretkey",key);
     	
     	prop2.store(new FileOutputStream("encryptedCredentials.properties",true),"This is a encrypted credentials");
     	System.out.println("Files are encrypted and stored to file.");
@@ -41,7 +43,9 @@ public class TestAES {
     	prop1.load(new FileInputStream("encryptedCredentials.properties"));
     	String euser=prop1.getProperty("euser");
     	String epass=prop1.getProperty("epass");
-    	String secretkey=prop1.getProperty("secretkey");
+    	
+    	//We are setting the secket key in the environment variable of the system.
+    	String secretkey=System.getenv("secretkey");
     	
     	String decrypteduser=AES.decrypt(euser, secretkey);
     	String decryptedpass=AES.decrypt(epass, secretkey);
@@ -51,7 +55,7 @@ public class TestAES {
 	}
 	public static void main(String[] args) throws FileNotFoundException, IOException {
 		
-	//TestAES.encryptAndStore();
+	TestAES.encryptAndStore();
 		TestAES.decrypt();
 	}
 

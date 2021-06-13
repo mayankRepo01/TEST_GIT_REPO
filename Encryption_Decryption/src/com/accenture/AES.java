@@ -67,34 +67,6 @@ public class AES {
         }
         return null;
     }
-/*    
-    public static void main(String[] args) throws FileNotFoundException, IOException 
-    {
-    	
-    	Properties prop1=new Properties();
-    	prop1.load(new FileInputStream("credentials.properties"));
-    	String user=prop1.getProperty("user");
-    	String pass=prop1.getProperty("password");
-    	System.out.println(user);
-    	System.out.println(pass);
-    	
-    	final String secretKey = "Avengers-Assemble";
-    	String originalString =user;
-        String encryptedString = AES.encrypt(originalString, secretKey) ;
-        String decryptedString = AES.decrypt(encryptedString, secretKey) ;
-        
-    	
-    	Properties prop2=new Properties();
-    	prop2.put("user","cbfkcbebc");
-    	prop2.put("password","fecdfccfcc");
-    	
-    	prop2.store(new FileOutputStream("encryptedCredentials.properties",true),"This is a encrypted credentials");
-    	
-        
-         
-         
-        System.out.println(originalString);
-        System.out.println(encryptedString);
-        System.out.println(decryptedString);
-    }  */
+    
+    
 }
